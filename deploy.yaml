@@ -3,9 +3,9 @@
 - hosts: localhost
 
   vars:
-     region: eu-west-1
+     region: us-east-1
      instance_type: t2.nano
-     base_image_name: ami-70edb016
+     base_image_name: ami-0b33d91d
      number_of_instances_to_create: 1
 
   tasks:
@@ -37,7 +37,7 @@
 
     - name: Start up an EC2 Temporary Instance
       ec2:
-        key_name: microservice-course-keypair
+        key_name: microservice-keypair
         group: jenkins_server_security_groups
         instance_type: "{{ instance_type }}"
         image: "{{ base_image_name }}"
@@ -66,7 +66,7 @@
   tasks:
 
     - name: Hello World, is this Working?
-      debug: msg="Hello? Is this working?"
+      debug: msg="Hello COGI? Is this working?"
 
     - name: Patch up the server - this will test if we can SSH
       yum: name=* state=latest
@@ -79,7 +79,7 @@
 
     - name: All working so destroy the temporary instance
       ec2:
-        key_name: microservice-course-keypair
+        key_name: microservice-keypair
         group: jenkins_server_security_groups
         instance_type: notneeded
         image: notneeded
