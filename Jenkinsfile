@@ -1,6 +1,6 @@
 node {
    stage('Preparation') { 
-      git 'https://github.com/VPPCourseUser/fleetman-position-tracker'
+      git 'https://github.com/rgcogi/fleetman-position-tracker'
    }
    stage('Build') {
       sh "mvn package"
