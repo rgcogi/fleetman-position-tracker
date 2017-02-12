@@ -7,6 +7,7 @@ public class TimestampParsingTests
 	@Test
 	public void timestampsParseCorrectly() 
 	{
+		
 		// Format: EEE MMM dd HH:mm:ss zzz yyyy	
 		Position position = new Position("23", "21", "Monday January 09 16:15:00 +0000 2017");
 	
