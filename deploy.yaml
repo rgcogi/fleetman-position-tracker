@@ -73,20 +73,3 @@
       become: yes
 
 
-- hosts: localhost
-
-  tasks:
-
-    - name: All working so destroy the temporary instance
-      ec2:
-        key_name: microservice-keypair
-        group: jenkins_server_security_groups
-        instance_type: notneeded
-        image: notneeded
-        wait: yes
-        region: "{{ region }}"
-        exact_count: 0
-        instance_tags:
-          Name: Dummy_Test
-        count_tag:
-          Name: Dummy_Test
